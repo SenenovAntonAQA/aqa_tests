@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71cf5366-6e64-469c-b7c9-dd2731229749" name="Changes" comment="Test 4" />
+    <list default="true" id="71cf5366-6e64-469c-b7c9-dd2731229749" name="Changes" comment="Test 5">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749474458594</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Test 5">
+      <option name="closed" value="true" />
+      <created>1749475243379</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749475243379</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -150,6 +160,7 @@
     <MESSAGE value="Test 2" />
     <MESSAGE value="Test 3" />
     <MESSAGE value="Test 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 4" />
+    <MESSAGE value="Test 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test 5" />
   </component>
 </project>
