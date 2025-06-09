@@ -2,8 +2,6 @@ import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-# from selenium.webdriver.common.by import By
-# мы можем не использовать этот импорт каждый раз, а сразу указывать тип элемента при инициализации
 
 service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
@@ -12,9 +10,9 @@ driver.get(url="https://auth.wikimedia.org/ruwiki/wiki/%D0%A1%D0%BB%D1%83%D0%B6%
 
 time.sleep(3)
 
-driver.find_element('id', 'wpLoginAttempt').click()
+driver.find_elements('class name', 'mw-authentication-popup-link')[0].click()
 
 time.sleep(3)
 
-driver.close() # Closes the current window
-driver.quit() # Closes the browser and shuts down the ChromiumDriver executable
+driver.close()  # Closes the current window
+driver.quit()  # Closes the browser and shuts down the ChromiumDriver executable
