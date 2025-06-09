@@ -5,3 +5,8 @@ print(x)
 
 x += 1
 print(x)
+
+test = []
+
+test.append(x)
+print(test)
