@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71cf5366-6e64-469c-b7c9-dd2731229749" name="Changes" comment="task1 for reviewer. first test selenium webdriver">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/python_tests_aqa.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chromedriver/check_driver_chrome.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firefoxdriver/check_driver_firefox.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/for_training_selenium/test_task1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/selenium_fast_tests/find_elements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/selenium_fast_tests/test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/selenium_fast_tests/test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/selenium_fast_tests/test3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/selenium_fast_tests/test4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +80,7 @@
     "Python.test4.executor": "Run",
     "Python.tets1.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "#1 on task1"
+    "git-widget-placeholder": "Merging main"
   },
   "keyToStringList": {
     "ChangesTree.GroupingKeys": [
