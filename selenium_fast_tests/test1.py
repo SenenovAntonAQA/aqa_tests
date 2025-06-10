@@ -19,3 +19,6 @@ time.sleep(1)
 
 driver.close() # Closes the current window
 driver.quit() # Closes the browser and shuts down the ChromiumDriver executable
+
+
+test = 0
