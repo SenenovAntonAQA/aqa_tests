@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71cf5366-6e64-469c-b7c9-dd2731229749" name="Changes" comment="Test 5">
+    <list default="true" id="71cf5366-6e64-469c-b7c9-dd2731229749" name="Changes" comment="task1 for reviewer. first test selenium webdriver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +32,16 @@
   "selectedUrlAndAccountId": {
     "url": "https://github.com/SenenovAntonAQA/aqa_tests.git",
     "accountId": "986d0c68-81ee-467b-8f72-73877f149c37"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "SenenovAntonAQA",
+    "repository": "aqa_tests"
   }
 }]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
@@ -57,7 +67,7 @@
     "Python.test4.executor": "Run",
     "Python.tets1.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "#1 on task1"
   },
   "keyToStringList": {
     "ChangesTree.GroupingKeys": [
@@ -150,8 +160,27 @@
       <option name="project" value="LOCAL" />
       <updated>1749475243379</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="task1 for reviewer. first test selenium webdriver">
+      <option name="closed" value="true" />
+      <created>1749480654952</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749480654952</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add file" />
@@ -161,6 +190,7 @@
     <MESSAGE value="Test 3" />
     <MESSAGE value="Test 4" />
     <MESSAGE value="Test 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 5" />
+    <MESSAGE value="task1 for reviewer. first test selenium webdriver" />
+    <option name="LAST_COMMIT_MESSAGE" value="task1 for reviewer. first test selenium webdriver" />
   </component>
 </project>
