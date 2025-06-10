@@ -12,7 +12,7 @@ time.sleep(3)
 
 driver.find_elements('class name', 'mw-authentication-popup-link')[0].click()
 
-time.sleep(3)
+time.sleep(6)
 
 driver.close()  # Closes the current window
 driver.quit()  # Closes the browser and shuts down the ChromiumDriver executable
