@@ -7,10 +7,10 @@ service = Service(executable_path=ChromeDriverManager().install())
 # А если вообще не указывать путь - работает? Последние версии селениума вроде сами умеют устанавливать chromedriver и искать если уже установлен
 driver = webdriver.Chrome(service=service)
 
-url_steam = 'https://store.steampowered.com/'
+URL = 'https://store.steampowered.com/'
 # Это константа, стоит именовать большими буквами
 
-driver.get(url=url_steam)
+driver.get(url=URL)
 # Настройку драйвера, переход по ссылке и его закрытие нужно будет в фикстуре. Изучи, что это такое, ее скоупы и зачем они нужны
 # Можешь дополнительно изучить conftest.py ну или оставить это уже на следующее задание
 
