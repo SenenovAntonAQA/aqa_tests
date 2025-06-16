@@ -10,7 +10,7 @@ LOGIN_HREF = (By.XPATH, "//a[contains(@class, 'global_action_link')]")
 USERNAME = (By.XPATH, "//input[@type='text']")  # поле ввода имени аккаунта
 PASS = (By.XPATH, "//input[@type='password']")  # поле ввода пароля
 SUBMIT_BUT = (By.XPATH, "//button[@type='submit']")  # кнопка войти
-WRONG_CREDENTIALS = (By.XPATH, "//form//div[contains(text(), 'проверьте')]")
+WRONG_CREDENTIALS = (By.XPATH, "//button[@type='submit']/../following-sibling::div[string-length(normalize-space(text())) > 1]")
 DEFAULT_TIMEOUT = 10
 
 
@@ -44,3 +44,4 @@ def test_try_login_to_steam(driver):
     expected_text = "Пожалуйста, проверьте свой пароль и имя аккаунта и попробуйте снова."
 
     assert actual_text == expected_text, f"После ввода некорректных (рандомных) данных ожидали текст {expected_text}, а получили {actual_text}"
+    # Error text corresponds to the stated.
