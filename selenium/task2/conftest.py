@@ -1,23 +1,18 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from driver import Driver
+from config_reader import ConfigReader
 
 
 @pytest.fixture(scope="session")
-def browser():
-    driver = Driver()
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    driver.driver = webdriver.Chrome(options=options)
+def config_reader():
+    return ConfigReader()
+
+
+@pytest.fixture(scope="session")
+def browser(request, config_reader):
+    language = getattr(request, 'param', 'en')
+
+    driver = Driver(
+        options=config_reader.get_browser_options(language=language))
     yield driver
-
-    try:
-        driver.quit()
-    finally:
-        Driver._instances = {}
-
-@pytest.fixture
-def chrome_options(chrome_options, language):
-    chrome_options.add_argument(f"--lang={language}")
-    return chrome_options
+    driver.quit()
