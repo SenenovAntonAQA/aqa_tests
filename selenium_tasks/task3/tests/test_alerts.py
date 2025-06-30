@@ -1,26 +1,5 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from faker import Faker
-
-HEROKUAPP_URL = "https://the-internet.herokuapp.com/"
-DEFAULT_TIMEOUT = 10
-CONGRATULATION_XPATH = (By.XPATH, "//*[@id='content']//p")
-BUTTON_JS_ALERT = (By.XPATH, "//*[@onclick='jsAlert()']")
-BUTTON_JS_CONFIRM = (By.XPATH, "//*[@onclick='jsConfirm()']")
-BUTTON_JS_PROMPT = (By.XPATH, "//*[@onclick='jsPrompt()']")
-RESULT_JAVASCRIPT_ALERTS = (
-    By.XPATH, "//*[@id='result' and normalize-space() != '']")
-
-
-@pytest.fixture(scope="session")
-def browser():
-    browser = webdriver.Chrome()
-    yield browser
-    browser.quit()
-
+from selenium_tasks.task3.pages.javascript_alerts import JSAlertsPage
+from selenium_tasks.task3.utils.config_reader import ConfigReader
 
 def alert_appearance(wait):
     assert wait.until(EC.alert_is_present()), "Алёрт не появился"
@@ -42,24 +21,10 @@ def check_text_in_result(wait, expected_text):
         f"Ожидалось: '{expected_text}'"
     )
 
-
-def test_1_basic_authorization(browser):
-    login = "admin"
-    password = "admin"
-    wait = WebDriverWait(driver=browser, timeout=DEFAULT_TIMEOUT)
-    browser.get(
-        url=f"http://{login}:{password}@the-internet.herokuapp.com/basic_auth")
-
-    text_expected_result = "Congratulations! You must have the proper credentials."
-
-    assert wait.until(
-        EC.text_to_be_present_in_element(
-            CONGRATULATION_XPATH,
-            text_expected_result)), f"После авторизации на сайте нет надписи"
-    f" {text_expected_result}."
-
-
 def test_2_alerts(browser):
+
+    alert_page = JSAlertsPage(browser)
+
     expected_alert_text = "I am a JS Alert"
     expected_confirm_text = "I am a JS Confirm"
     expected_prompt_text = "I am a JS prompt"
@@ -69,10 +34,10 @@ def test_2_alerts(browser):
     # специально некорректный текст? subccessfuly -> successfully
     expected_result_confirm_text = "You clicked: Ok"
 
-    wait = WebDriverWait(driver=browser, timeout=DEFAULT_TIMEOUT)
-    browser.get(f"{HEROKUAPP_URL}javascript_alerts")
 
-    wait.until(EC.element_to_be_clickable(BUTTON_JS_ALERT)).click()
+    browser.get(ConfigReader.get("urls.alerts"))
+
+    JSAlertsPage.click_js_alert()
     # Нажать на кнопку “Click for JS Alert“
 
     alert_appearance(wait)
