@@ -1,0 +1,47 @@
+# Общие настройки
+environment: "dev"  # или "uat"
+
+# Таймауты (в секундах)
+timeouts:
+  default: 10      # стандартное ожидание элементов
+  page_load: 20    # загрузка страницы
+  element_click: 5 # кликабельные элементы
+  polling: 0.5     # интервал проверки (poll_frequency)
+
+# URL
+urls:
+  basic_auth: "http://{}:{}@the-internet.herokuapp.com/basic_auth"
+  alerts: "https://the-internet.herokuapp.com/javascript_alerts"
+  dashboard: "/app/dashboard"
+
+# Учетные данные (можно вынести в secrets)
+credentials:
+  username: "admin"
+  password: "admin"
+
+# Настройки браузера
+browser:
+  name: "chrome"           # chrome/firefox/edge/safari
+  headless: false         # режим без GUI (для CI)
+  window_size: "maximized" # или "1920x1080"
+  downloads_dir: "/tmp/downloads" # папка для загрузок
+  page_load_strategy: "normal" # normal/eager/none
+  logs: false             # логи браузера
+  sandbox: true           # песочница
+  proxy: null             # прокси-настройки
+
+  # Chrome-specific options
+  chrome:
+    detach: false         # оставлять браузер открытым после тестов
+    experimental_options:
+      excludeSwitches: ["enable-automation"] # скрыть автоматизацию
+      useAutomationExtension: false
+    mobile_emulation: null # эмуляция мобильного устройства
+    extensions: []        # пути к расширениям (.crx)
+    binary: null          # путь к исполняемому файлу браузера
+
+  # Для отладки
+  debug:
+    highlight_elements: true # подсветка элементов
+    slow_mo: 0           # замедление операций (мс)
+    devtools: false       # открыть инструменты разработчика
