@@ -9,7 +9,7 @@ class MultiWebElement:
 
     def __init__(
             self,
-            browser: Browser,
+            browser: 'Browser',
             formattable_xpath: str,
             description: str = None,
             timeout: int = None

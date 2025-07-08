@@ -48,15 +48,6 @@ class Input(BaseElement):
             keys
         )
 
-    def move_to_element(self):
-        element = self.wait_for_visible()
-        Logger.info(f"{self}: get the element '{element}' into focus")
-        try:
-            self._actions.move_to_element(element).click().perform()
-        except WebDriverException as err:
-            Logger.error(f"{self}: {err}")
-            raise
-
     def move_to_right(self, x):
         Logger.info(f"{self}: press right-keys '{x}' times")
         try:

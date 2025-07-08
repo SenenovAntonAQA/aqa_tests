@@ -139,3 +139,12 @@ class BaseElement:
         self.browser.execute_script(
             "arguments[0].click();", element
         )
+
+    def move_to_element(self):
+        element = self.wait_for_visible()
+        Logger.info(f"{self}: get the element '{element}' into focus")
+        try:
+            self._actions.move_to_element(element).click().perform()
+        except WebDriverException as err:
+            Logger.error(f"{self}: {err}")
+            raise
