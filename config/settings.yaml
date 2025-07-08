@@ -10,9 +10,10 @@ timeouts:
 
 # URL
 urls:
-  basic_auth: "http://{}:{}@the-internet.herokuapp.com/basic_auth"
+  basic_auth: "http://the-internet.herokuapp.com/basic_auth"
   alerts: "https://the-internet.herokuapp.com/javascript_alerts"
-  dashboard: "/app/dashboard"
+  context_menu: "https://the-internet.herokuapp.com/context_menu"
+  horizontal_slider: "https://the-internet.herokuapp.com/horizontal_slider"
 
 # Учетные данные (можно вынести в secrets)
 credentials:
@@ -24,24 +25,3 @@ browser:
   name: "chrome"           # chrome/firefox/edge/safari
   headless: false         # режим без GUI (для CI)
   window_size: "maximized" # или "1920x1080"
-  downloads_dir: "/tmp/downloads" # папка для загрузок
-  page_load_strategy: "normal" # normal/eager/none
-  logs: false             # логи браузера
-  sandbox: true           # песочница
-  proxy: null             # прокси-настройки
-
-  # Chrome-specific options
-  chrome:
-    detach: false         # оставлять браузер открытым после тестов
-    experimental_options:
-      excludeSwitches: ["enable-automation"] # скрыть автоматизацию
-      useAutomationExtension: false
-    mobile_emulation: null # эмуляция мобильного устройства
-    extensions: []        # пути к расширениям (.crx)
-    binary: null          # путь к исполняемому файлу браузера
-
-  # Для отладки
-  debug:
-    highlight_elements: true # подсветка элементов
-    slow_mo: 0           # замедление операций (мс)
-    devtools: false       # открыть инструменты разработчика

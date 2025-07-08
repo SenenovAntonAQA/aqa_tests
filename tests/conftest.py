@@ -1,11 +1,11 @@
 import pytest
 
+from utils.config_reader import ConfigReader
 from browser.browser_factory import BrowserFactory, AvailableDriverName
 
 
 @pytest.fixture(scope="session")
 def config():
-    from utils.config_reader import ConfigReader
     return ConfigReader.load_config()
 
 

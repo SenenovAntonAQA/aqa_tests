@@ -1,4 +1,5 @@
 from selenium.common import WebDriverException
+from selenium.webdriver import Keys
 
 from elements.base_element import BaseElement
 from logger.logger import Logger
@@ -46,3 +47,30 @@ class Input(BaseElement):
             input_element,
             keys
         )
+
+    def move_to_element(self):
+        element = self.wait_for_visible()
+        Logger.info(f"{self}: get the element '{element}' into focus")
+        try:
+            self._actions.move_to_element(element).click().perform()
+        except WebDriverException as err:
+            Logger.error(f"{self}: {err}")
+            raise
+
+    def move_to_right(self, x):
+        Logger.info(f"{self}: press right-keys '{x}' times")
+        try:
+            for _ in range(x):
+                self._actions.send_keys(Keys.ARROW_RIGHT).perform()
+        except WebDriverException as err:
+            Logger.error(f"{self}: {err}")
+            raise
+
+    def move_to_left(self, x):
+        Logger.info(f"{self}: press left-keys '{x}' times")
+        try:
+            for _ in range(x):
+                self._actions.send_keys(Keys.ARROW_LEFT).perform()
+        except WebDriverException as err:
+            Logger.error(f"{self}: {err}")
+            raise

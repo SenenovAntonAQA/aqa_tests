@@ -1,12 +1,11 @@
 import yaml
-from pathlib import Path
+
 
 class ConfigReader:
-    _config_path = Path(__file__).parent.parent / "config/settings.yaml"
 
     @staticmethod
     def load_config() -> dict:
-        with open(ConfigReader._config_path, "r") as f:
+        with open("../config/settings.yaml", "r") as f:
             return yaml.safe_load(f)
 
     @staticmethod

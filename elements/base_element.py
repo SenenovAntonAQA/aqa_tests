@@ -1,4 +1,5 @@
 from selenium.common import TimeoutException, WebDriverException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -31,6 +32,7 @@ class BaseElement:
         self.description = description if description else str(locator)
 
         self._wait = WebDriverWait(self.browser.driver, timeout=self.timeout)
+        self._actions = ActionChains(self.browser.driver)
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}[{self.description}]"
@@ -46,6 +48,7 @@ class BaseElement:
         except TimeoutException as err:
             Logger.error(f"{self}: {err}")
             raise
+
     def _wait_for_not(self, expected_conditions) -> None:
         try:
             Logger.info(f"{self}: wait for not {expected_conditions.__name__}")
@@ -63,13 +66,14 @@ class BaseElement:
         return self._wait_for(
             expected_conditions=EC.element_to_be_clickable
         )
+
     def wait_for_visible(self) -> WebElement:
         return self._wait_for(
             expected_conditions=EC.visibility_of_element_located
         )
 
     def is_enabled(self) -> bool:
-        element = self.wait_for_visible()
+        element = self.wait_for_presence()
         Logger.info(f"{self}: Whether the '{element}' is enabled")
         try:
             is_enabled = element.is_enabled()
@@ -116,6 +120,15 @@ class BaseElement:
         Logger.info(f"{self}: click")
         try:
             element.click()
+        except WebDriverException as err:
+            Logger.error(f"{self}: {err}")
+            raise
+
+    def context_click(self) -> None:
+        element = self.wait_for_clickable()
+        Logger.info(f"{self}: right-click (context click)")
+        try:
+            self._actions.context_click(element).perform()
         except WebDriverException as err:
             Logger.error(f"{self}: {err}")
             raise

@@ -3,7 +3,7 @@ import time
 from datetime import datetime
 import json
 
-from selenium.common import WebDriverException
+from selenium.common import WebDriverException, NoAlertPresentException
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
@@ -65,16 +65,11 @@ class Browser:
             raise
 
     def refresh(self) -> None:
-        Logger.info(f"{self}: refresh window handle...")
-        self._driver.refresh()
+        Logger.info(f"{self}: refresh window handle")
         try:
-            self._wait.until(
-                lambda d: d.execute_script("document.readyState")
-                == "complete"
-            )
-            Logger.info(f"{self}: handle was refresh")
+            self._driver.refresh()
         except WebDriverException as err:
-            Logger.error(f"{self}: refresh failed - {str(err)}")
+            Logger.error(f"{self}: {err}")
             raise
 
     def save_screenshot(self, filename: str) -> None:
@@ -121,6 +116,14 @@ class Browser:
         self.wait_alert_present()
         return self._driver.switch_to.alert
 
+    def check_close_alert(self) -> bool:
+        Logger.info(f"{self}: check close alert")
+        try:
+            self._driver.switch_to.alert
+        except NoAlertPresentException:
+            return True
+        return False
+
     def get_alert_text(self):
         Logger.info(f"{self}: get alert text")
         return self.switch_to_alert().text
@@ -164,8 +167,8 @@ class Browser:
 
             Logger.info(f"{self}: created dump in dir '{dump_dir}'")
 
-        except Exception as err:
-            Logger.error(f"{self}: failed to create dump - {str(err)}")
+        except WebDriverException as err:
+            Logger.error(f"{self}: failed to create dump - {err}")
             raise
 
         return dump_dir

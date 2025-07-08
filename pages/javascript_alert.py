@@ -42,7 +42,7 @@ class JSAlertsPage(BasePage):
             description="JS Alerts Page -> Result Field on Page"
         )
 
-    def text_in_result(self):
+    def get_result_text(self):
         return self.result_field.get_text()
 
     def click_alert(self):
