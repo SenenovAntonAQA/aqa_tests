@@ -1,12 +1,10 @@
-from urllib.parse import urljoin
-
 from logger.logger import Logger
 
 from pages.hovers import HoversPage
 from utils.config_reader import ConfigReader
 
 
-def test_6_hovers_(browser):
+def test_6_hovers(browser):
     browser.get(ConfigReader.get("urls.hovers"))
 
     hovers_page = HoversPage(browser)

@@ -46,7 +46,7 @@ class Browser:
             raise
 
     def close(self) -> None:
-        if len(self._driver.window_handles) == 1:
+        if self.check_count_handles() == 1:
             Logger.info(f"{self}: last window closing, quitting browser")
             self.quit()
         else:
@@ -55,6 +55,11 @@ class Browser:
                 f" '{self._driver.current_window_handle}'"
             )
             self._driver.close()
+
+    def check_count_handles(self) -> int:
+        count = len(self._driver.window_handles)
+        Logger.info(f"{self}: count handles = {count}")
+        return count
 
     def execute_script(self, script: str, *args) -> None:
         Logger.info(f"{self}: execute script = '{script}' with args = '{args}'")
@@ -84,9 +89,21 @@ class Browser:
             Logger.error(f"{self}: {err}")
             raise
 
+    def switch_to_new_window(self):
+        Logger.info(f"{self}: switch to new window after open")
+        try:
+            for handle in self._driver.window_handles:
+                if handle != self.main_handle:
+                    self._driver.switch_to.window(handle)
+                    return
+        except WebDriverException as err:
+            Logger.error(f"{self}: failed to switch to new window - {err}")
+            raise
+
     def switch_to_window(self, title: str) -> None:
         Logger.info(f"{self} switch to window with title '{title}'")
         end_time = time.time() + self.PAGE_LOAD_TIMEOUT
+
         while True:
             handles = self._driver.window_handles
             for handle in handles:

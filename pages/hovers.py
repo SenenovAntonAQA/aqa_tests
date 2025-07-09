@@ -1,6 +1,5 @@
 from elements.multi_web_element import MultiWebElement
 from elements.web_element import WebElement
-from logger.logger import Logger
 from .base_page import BasePage
 
 class HoversPage(BasePage):

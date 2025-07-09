@@ -16,6 +16,8 @@ urls:
   context_menu: "https://the-internet.herokuapp.com/context_menu"
   horizontal_slider: "https://the-internet.herokuapp.com/horizontal_slider"
   hovers: "http://the-internet.herokuapp.com/hovers"
+  windows: "https://the-internet.herokuapp.com/windows"
+
 
 # Учетные данные (можно вынести в secrets)
 credentials:
