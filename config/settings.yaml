@@ -1,5 +1,6 @@
 # Общие настройки
-environment: "dev"  # или "uat"
+environment:
+  host: "http://the-internet.herokuapp.com"
 
 # Таймауты (в секундах)
 timeouts:

@@ -2,6 +2,7 @@ from typing_extensions import Self
 
 from browser.browser import Browser
 from elements.web_element import WebElement
+from logger.logger import Logger
 
 
 class MultiWebElement:
@@ -46,3 +47,32 @@ class MultiWebElement:
 
     def __repr__(self) -> str:
         return str(self)
+
+    def get_element(self, index: int) -> WebElement:
+        """Return select (index) WebElement."""
+        return WebElement(
+            self.browser,
+            self.formattable_xpath.format(index),
+            f"{self.description}[{index}]",
+            timeout=self.timeout
+        )
+
+    def count_elements(self) -> int:
+        """Return the number of all group elements."""
+        count = 0
+        index = 1  # Начинаем с первого элемента
+
+        while True:
+            element = WebElement(
+                self.browser,
+                self.formattable_xpath.format(index),
+                f"{self.description}[{index}]",
+                timeout=2
+            )
+            if not element.is_exists():
+                break
+            count += 1
+            index += 1
+
+        Logger.info(f"Count elements = '{count}'")
+        return count

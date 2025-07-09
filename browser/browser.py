@@ -120,9 +120,9 @@ class Browser:
         Logger.info(f"{self}: check close alert")
         try:
             self._driver.switch_to.alert
+            return False
         except NoAlertPresentException:
             return True
-        return False
 
     def get_alert_text(self):
         Logger.info(f"{self}: get alert text")
@@ -172,6 +172,15 @@ class Browser:
             raise
 
         return dump_dir
+
+    def get_current_url(self) -> str:
+        url = self._driver.current_url
+        Logger.info(f"{self}: current url on this page: '{url}'")
+        return url
+
+    def come_back(self):
+        Logger.info(f"{self}: goes one step backward in the browser history")
+        self._driver.back()
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}[{self._driver.session_id}]"
