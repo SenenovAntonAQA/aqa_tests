@@ -8,7 +8,7 @@ def verify_text_on_window(actual, expected):
         f"does not match the expected '{expected}'"
     )
 
-def test_7_open_and_close_handlers(browser):
+def test_case_7_open_and_close_handlers(browser):
     browser.get(ConfigReader.get("urls.windows"))
 
     window_page = WindowsPage(browser)

@@ -18,7 +18,7 @@ def check_text_in_result(actual_text, expected_text):
     )
 
 
-def test_2_alerts(browser):
+def test_case_2_alerts(browser):
     browser.get(ConfigReader.get("urls.alerts"))
 
     alert_page = JSAlertsPage(browser)
@@ -83,7 +83,7 @@ def test_2_alerts(browser):
     )
 
 
-def test_3_alerts_with_js(browser):
+def test_case_3_alerts_with_js(browser):
     browser.get(ConfigReader.get("urls.alerts"))
 
     alert_page = JSAlertsPage(browser)
@@ -153,7 +153,7 @@ def test_3_alerts_with_js(browser):
         expected_text=expected_result_prompt_text.format(random_text)
     )
 
-def test_4_alerts_context_click(browser):
+def test_case_4_alerts_context_click(browser):
     browser.get(ConfigReader.get("urls.context_menu"))
 
     context_menu_page = ContextMenuPage(browser)

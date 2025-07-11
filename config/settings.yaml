@@ -1,7 +1,3 @@
-# Общие настройки
-environment:
-  host: "http://the-internet.herokuapp.com"
-
 # Таймауты (в секундах)
 timeouts:
   default: 10      # стандартное ожидание элементов
@@ -17,7 +13,8 @@ urls:
   horizontal_slider: "https://the-internet.herokuapp.com/horizontal_slider"
   hovers: "http://the-internet.herokuapp.com/hovers"
   windows: "https://the-internet.herokuapp.com/windows"
-
+  frames: "https://demoqa.com/frames"
+  dynamic_content: "https://the-internet.herokuapp.com/dynamic_content"
 
 # Учетные данные (можно вынести в secrets)
 credentials:

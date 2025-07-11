@@ -158,8 +158,12 @@ class Browser:
         return self.switch_to_alert().send_keys(text)
 
     def switch_to_frame(self, frame: BaseElement):
-        Logger.info(f"{self}: switch to frame")
+        Logger.info(f"{self}: switch to frame '{frame}'")
         return self._driver.switch_to.frame(frame.wait_for_presence())
+
+    def switch_to_default_frame(self):
+        Logger.info(f"{self}: switch witch focus to the default frame")
+        return self._driver.switch_to.default_content()
 
     def make_dump(self, prefix: str = "dump") -> str:
         timestamp = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")

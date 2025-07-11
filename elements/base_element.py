@@ -93,6 +93,20 @@ class BaseElement:
         except TimeoutException:
             return False
 
+    def is_displayed(self) -> bool:
+        element = self.wait_for_presence()
+        Logger.info(f"{self}: Checking visibility of element '{element}'")
+        try:
+            is_visible = element.is_enabled()
+            status = "visible" if is_visible else "hidden"
+        except WebDriverException as err:
+            Logger.error(
+                f"{self}: : failed to check visibility state - {str(err)}"
+            )
+            raise
+        Logger.info(f"{self}: element is {status}")
+        return is_visible
+
     def get_text(self) -> str:
         element = self.wait_for_presence()
         Logger.info(f"{self}: get text")

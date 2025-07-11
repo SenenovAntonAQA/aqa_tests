@@ -5,7 +5,7 @@ def open_with_auth(url, login, password):
     auth_url = url.replace("http://", f"http://{login}:{password}@")
     return auth_url
 
-def test_1_basic_authorization(browser):
+def test_case_1_basic_authorization(browser):
 
     browser.get(
         open_with_auth(

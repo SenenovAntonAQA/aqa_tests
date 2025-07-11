@@ -13,7 +13,7 @@ def get_random_value(start: int = 1, stop: int = 5):
     return value
 
 
-def test_5_move_slider(browser):
+def test_case_5_move_slider(browser):
     browser.get(ConfigReader.get("urls.horizontal_slider"))
 
     horizontal_slider = HorizontalSliderPage(browser)
