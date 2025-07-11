@@ -12,6 +12,7 @@ __pycache__/
 
 # Файлы настроек и логи
 *.log
+*.png
 *.ini
 *.cfg
 *.env
