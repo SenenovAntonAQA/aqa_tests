@@ -86,8 +86,6 @@ class UploadPage(BasePage):
             description="Drag & Drop -> Success mark"
         )
 
-        self.hidden_field = None
-
     def send_file(self, file_path):
         self.select_file.wait_for_visible()
         self.select_file.send_keys(file_path)

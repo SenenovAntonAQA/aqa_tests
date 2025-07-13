@@ -75,5 +75,3 @@ def test_case_13_drag_n_drop(browser):
     image_path = (Path(__file__).parent / image).resolve()
 
     browser.get(ConfigReader.get("urls.upload"))
-
-
