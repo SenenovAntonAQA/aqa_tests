@@ -65,3 +65,5 @@ class Input(BaseElement):
         except WebDriverException as err:
             Logger.error(f"{self}: {err}")
             raise
+
+

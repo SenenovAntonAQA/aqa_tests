@@ -1,5 +1,5 @@
 from logger.logger import Logger
-from pages.IFrame import FramesPage, NestedFramesPage
+from pages.frames import FramesPage, NestedFramesPage
 from utils.config_reader import ConfigReader
 
 

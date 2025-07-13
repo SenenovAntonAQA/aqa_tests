@@ -20,7 +20,8 @@ class Logger:
     __handler1 = RotatingFileHandler(
         LoggerConfig.LOGS_FILE_NAME,
         maxBytes=int(LoggerConfig.MAX_BYTES),
-        backupCount=LoggerConfig.BACKUP_COUNT
+        backupCount=LoggerConfig.BACKUP_COUNT,
+        encoding='utf-8'
     )
     __handler2 = logging.StreamHandler(sys.stdout)
 
