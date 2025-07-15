@@ -72,6 +72,22 @@ def test_case_12_dialog_window(browser):
 
 def test_case_13_drag_n_drop(browser):
     image = "screenshot_test_case_9.png"
-    image_path = (Path(__file__).parent / image).resolve()
+    image_path = Path(__file__).parent
 
     browser.get(ConfigReader.get("urls.upload"))
+
+    load_page = UploadPage(browser)
+    load_page.wait_for_open()
+
+    PyAutoGUIUtilities.drag_and_drop_from_explorer(
+        file_path=str(image_path)
+    )
+
+    verify_text(
+        actual=load_page.get_text_on_dnd_field(),
+        expected=image
+    )
+
+    verify_mark(
+        actual_mark=load_page.get_mark_on_dnd_field()
+    )

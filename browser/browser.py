@@ -23,7 +23,6 @@ class Browser:
         self.main_handle = None
 
         self._wait = WebDriverWait(self._driver, timeout=self.DEFAULT_TIMEOUT)
-        self._actions = ActionChains(self._driver)
 
     @property
     def driver(self) -> WebDriver:
