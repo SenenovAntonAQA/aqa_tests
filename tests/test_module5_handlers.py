@@ -2,11 +2,13 @@ from logger.logger import Logger
 from pages.windows import WindowsPage, NewWindowPage
 from utils.config_reader import ConfigReader
 
+
 def verify_text_on_window(actual, expected):
     assert actual == expected, (
         f"The current text on page '{actual}' "
         f"does not match the expected '{expected}'"
     )
+
 
 def test_case_7_open_and_close_handlers(browser):
     browser.get(ConfigReader.get("urls.windows"))

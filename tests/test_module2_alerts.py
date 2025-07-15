@@ -153,6 +153,7 @@ def test_case_3_alerts_with_js(browser):
         expected_text=expected_result_prompt_text.format(random_text)
     )
 
+
 def test_case_4_alerts_context_click(browser):
     browser.get(ConfigReader.get("urls.context_menu"))
 

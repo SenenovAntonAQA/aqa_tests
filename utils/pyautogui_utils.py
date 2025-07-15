@@ -41,7 +41,6 @@ class PyAutoGUIUtilities:
         pyautogui.click(1350, 305)
         time.sleep(0.5)
 
-
         Logger.debug(f"Drag and drop file to drop area")
         pyautogui.mouseDown()
         time.sleep(0.5)

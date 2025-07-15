@@ -9,6 +9,7 @@ def verify_frame_text(act, exp):
         f"does not match the expected '{exp}'"
     )
 
+
 def test_case_8_work_with_frames(browser):
     Logger.info(
         "# Step 1: Перейти на главную страницу 'https://demoqa.com/frames'"
@@ -23,7 +24,7 @@ def test_case_8_work_with_frames(browser):
 
     Logger.info(
         "# Step 2: Кликнуть на кнопку Alerts, Frame & Windows. На открывшейся "
-                "странице в левом меню кликнуть пункт Nested Frames"
+        "странице в левом меню кликнуть пункт Nested Frames"
     )
     frames_page.click_to_nested_frames()
 

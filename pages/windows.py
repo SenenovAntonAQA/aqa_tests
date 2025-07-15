@@ -1,6 +1,7 @@
 from elements.web_element import WebElement
 from .base_page import BasePage
 
+
 class NewWindowPage(BasePage):
     UNIQUE_ELEMENT_LOC = "//*[@class='example']//h3"
 

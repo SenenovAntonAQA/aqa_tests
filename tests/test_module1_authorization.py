@@ -1,17 +1,18 @@
 from pages.basic_auth import BasicAuthPage
 from utils.config_reader import ConfigReader
 
+
 def open_with_auth(url, login, password):
     auth_url = url.replace("http://", f"http://{login}:{password}@")
     return auth_url
 
-def test_case_1_basic_authorization(browser):
 
+def test_case_1_basic_authorization(browser):
     browser.get(
         open_with_auth(
-        url=ConfigReader.get("urls.basic_auth"),
-        login=ConfigReader.get("credentials.username"),
-        password=ConfigReader.get("credentials.password")
+            url=ConfigReader.get("urls.basic_auth"),
+            login=ConfigReader.get("credentials.username"),
+            password=ConfigReader.get("credentials.password")
         )
     )
 

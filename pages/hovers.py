@@ -2,6 +2,7 @@ from elements.multi_web_element import MultiWebElement
 from elements.web_element import WebElement
 from .base_page import BasePage
 
+
 class HoversPage(BasePage):
     UNIQUE_ELEMENT_LOC = "//*[@class='figure']//img"
 
@@ -48,10 +49,10 @@ class HoversPage(BasePage):
     def get_user_names(self, index) -> str:
         name = self.users_name.get_element(index)
         name.wait_for_visible()
-        return  name.get_text()
+        return name.get_text()
 
     def get_user_links(self, index) -> str:
-        return  self.users_href.get_element(index).get_attribute("href")
+        return self.users_href.get_element(index).get_attribute("href")
 
     def click_user_link(self, index):
         link = self.users_href.get_element(index)

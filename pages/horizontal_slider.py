@@ -4,9 +4,11 @@ from elements.input import Input
 from elements.web_element import WebElement
 from .base_page import BasePage
 
+
 class MovingDirection(StrEnum):
     LEFT = "left"
     RIGHT = "right"
+
 
 class HorizontalSliderPage(BasePage):
     UNIQUE_ELEMENT_LOC = "//input[@type='range']"
@@ -35,7 +37,6 @@ class HorizontalSliderPage(BasePage):
             self.RANGE_COUNTER_LOC,
             description="Horizontal Slider Page -> Range Counter"
         )
-
 
     def get_range_counter(self):
         return self.counter.get_text()
