@@ -27,7 +27,7 @@ def test_case_5_move_slider(browser):
     horizontal_slider.take_slider_to_focus()
     current = float(horizontal_slider.get_range_counter())
 
-    direction = MovingDirection.RIGHT if current < target else MovingDirection.RIGHT
+    direction = MovingDirection.RIGHT if current < target else MovingDirection.LEFT
     horizontal_slider.set_slider_precise(
         value=int(abs(current - target) / step),
         type=direction
