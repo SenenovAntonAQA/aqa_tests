@@ -36,12 +36,12 @@ def test_case_8_work_with_frames(browser):
 
     browser.switch_to_frame(frame=parent_frame)
 
-    text_parent_frame = nested_page.get_text_in_parent_frame
+    text_parent_frame = nested_page.get_text_in_parent_frame()
     verify_frame_text(text_parent_frame, "Parent frame")
 
     browser.switch_to_frame(frame=child_frame)
 
-    text_child_frame = nested_page.get_text_in_child_frame
+    text_child_frame = nested_page.get_text_in_child_frame()
     verify_frame_text(text_child_frame, "Child Iframe")
 
     browser.switch_to_default_frame()

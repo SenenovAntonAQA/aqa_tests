@@ -29,7 +29,7 @@ def test_case_5_move_slider(browser):
 
     direction = MovingDirection.RIGHT if current < target else MovingDirection.RIGHT
     horizontal_slider.set_slider_precise(
-        value=(abs(current - target) / step),
+        value=int(abs(current - target) / step),
         type=direction
     )
 

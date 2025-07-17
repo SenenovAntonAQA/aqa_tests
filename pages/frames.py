@@ -115,11 +115,9 @@ class NestedFramesPage(BasePage):
         )
 
     def get_text_in_parent_frame(self) -> str:
-        self.text_in_parent_frame.wait_for_visible()
         return self.text_in_parent_frame.get_text()
 
     def get_text_in_child_frame(self) -> str:
-        self.text_in_child_frame.wait_for_visible()
         return self.text_in_child_frame.get_text()
 
     def click_to_frames(self):
