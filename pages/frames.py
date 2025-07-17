@@ -114,18 +114,16 @@ class NestedFramesPage(BasePage):
             description="DropDown list -> 'Frames' option"
         )
 
-    def get_text_in_frame(self, is_parent: bool = True) -> str:
-        if is_parent:
-            self.text_in_parent_frame.wait_for_visible()
-            return self.text_in_parent_frame.get_text()
-        else:
-            self.text_in_parent_frame.wait_for_visible()
-            return self.text_in_parent_frame.get_text()
+    def get_text_in_parent_frame(self) -> str:
+        self.text_in_parent_frame.wait_for_visible()
+        return self.text_in_parent_frame.get_text()
+
+    def get_text_in_child_frame(self) -> str:
+        self.text_in_child_frame.wait_for_visible()
+        return self.text_in_child_frame.get_text()
 
     def click_to_frames(self):
         frames = self.to_frame
         if not frames.is_displayed():
             self.dropdown_frames_list.click()
-            frames.click()
-        else:
-            frames.click()
+        frames.click()

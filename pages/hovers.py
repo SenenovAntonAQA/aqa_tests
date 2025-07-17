@@ -38,23 +38,18 @@ class HoversPage(BasePage):
 
     def get_count_group_users(self):
         count = self.group_users.count_elements()
-        if not count == 0:
-            return count
-        else:
+        if not count:
             raise ValueError("There are no users on the page")
+        return count
 
     def take_focus_avatar(self, index):
         self.group_users.get_element(index).move_to_element()
 
     def get_user_names(self, index) -> str:
-        name = self.users_name.get_element(index)
-        name.wait_for_visible()
-        return name.get_text()
+        return self.users_name.get_element(index).get_text()
 
     def get_user_links(self, index) -> str:
         return self.users_href.get_element(index).get_attribute("href")
 
     def click_user_link(self, index):
-        link = self.users_href.get_element(index)
-        link.wait_for_visible()
-        link.click()
+        self.users_href.get_element(index).click()

@@ -1,5 +1,5 @@
 import pytest
-
+from browser.browser import Browser
 from utils.config_reader import ConfigReader
 from browser.browser_factory import BrowserFactory, AvailableDriverName
 
@@ -27,8 +27,6 @@ def browser(config):
         driver_name=AvailableDriverName(browser_name),
         options=options
     )
-
-    from browser.browser import Browser
 
     browser_instance = Browser(driver)
     yield browser_instance

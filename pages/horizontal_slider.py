@@ -49,3 +49,12 @@ class HorizontalSliderPage(BasePage):
             self.slider.move_to_right(value)
         else:
             self.slider.move_to_left(value)
+
+    def get_slider_min(self):
+        return float(self.slider.get_attribute("min"))
+
+    def get_slider_max(self):
+        return float(self.slider.get_attribute("max"))
+
+    def get_slider_step(self):
+        return float(self.slider.get_attribute("step"))

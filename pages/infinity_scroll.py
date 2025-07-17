@@ -24,15 +24,12 @@ class InfinityScrollPage(BasePage):
             description="Infinity Scroll -> Elements of Group paragraphs"
         )
 
-        self.count = 1
+    def count_paragraph(self):
+        return self.all_par.count_elements()
 
-    def verify_element_number(self, number: int):
-        self.count = self.all_par.count_elements()
-        return self.count >= number
-
-    def scroll_to_page_down(self):
-        last_par = self.all_par.get_element(self.count)
-        last_par.wait_for_visible()
+    def scroll_to_page_down(self, count_para):
+        last_para = self.all_par.get_element(count_para)
+        last_para.wait_for_visible()
         self.browser.execute_script(
             "window.scrollTo(0, document.body.scrollHeight)"
         )

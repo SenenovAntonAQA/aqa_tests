@@ -51,6 +51,5 @@ class WindowsPage(BasePage):
         )
 
     def open_new_window(self):
-        link = self.new_window_link
-        link.wait_for_clickable()
-        link.click()
+        self.new_window_link.wait_for_clickable()
+        self.new_window_link.click()

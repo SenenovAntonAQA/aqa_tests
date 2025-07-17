@@ -97,7 +97,7 @@ class BaseElement:
         element = self.wait_for_presence()
         Logger.info(f"{self}: Checking visibility of element '{element}'")
         try:
-            is_visible = element.is_enabled()
+            is_visible = element.is_displayed()
             status = "visible" if is_visible else "hidden"
         except WebDriverException as err:
             Logger.error(
@@ -163,9 +163,9 @@ class BaseElement:
             Logger.error(f"{self}: {err}")
             raise
 
-    def scroll_to_element(self, element):
-        Logger.info(f"{self}: scroll to '{element}'")
+    def scroll_to_element(self):
+        Logger.info(f"{self}: scroll to this element")
         self.browser.execute_script(
             "arguments[0].scrollIntoView(true);",
-            element
+            self
         )

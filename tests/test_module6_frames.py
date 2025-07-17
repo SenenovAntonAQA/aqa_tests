@@ -36,12 +36,12 @@ def test_case_8_work_with_frames(browser):
 
     browser.switch_to_frame(frame=parent_frame)
 
-    text_parent_frame = nested_page.get_text_in_frame(is_parent=True)
+    text_parent_frame = nested_page.get_text_in_parent_frame
     verify_frame_text(text_parent_frame, "Parent frame")
 
     browser.switch_to_frame(frame=child_frame)
 
-    text_child_frame = nested_page.get_text_in_frame(is_parent=False)
+    text_child_frame = nested_page.get_text_in_child_frame
     verify_frame_text(text_child_frame, "Child Iframe")
 
     browser.switch_to_default_frame()
@@ -51,12 +51,12 @@ def test_case_8_work_with_frames(browser):
     frames_page.wait_for_open()
 
     browser.switch_to_frame(frame=upper_frame)
-    text_upper_frame = nested_page.get_text_in_frame()
+    text_upper_frame = frames_page.get_text_in_frame()
 
     browser.switch_to_default_frame()
 
     browser.switch_to_frame(frame=lower_frame)
-    text_lower_frame = nested_page.get_text_in_frame()
+    text_lower_frame = frames_page.get_text_in_frame()
 
     assert text_upper_frame == text_lower_frame, (
         f"Надпись из верхнего фрейма '{text_upper_frame}' "
