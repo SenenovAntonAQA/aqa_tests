@@ -104,7 +104,7 @@ class Browser:
         Logger.info(f"{self} switch to window with title '{title}'")
         end_time = time.time() + self.PAGE_LOAD_TIMEOUT
 
-        while True:
+        while time.time() < end_time:
             handles = self._driver.window_handles
             for handle in handles:
                 self._driver.switch_to.window(handle)
@@ -114,15 +114,10 @@ class Browser:
                         f" '{self._driver.current_window_handle}'"
                     )
                     return
-                if time.time() < end_time:
-                    time.sleep(1)  # try again in 1 sec
-                else:
-                    Logger.error(
-                        f"{self}: window with title '{title}' wasn't found"
-                    )
-                    raise ValueError(
-                        f"{self}: window with title '{title}' wasn't found"
-                    )
+            time.sleep(1)  # try again in 1 sec
+
+        Logger.error(f"{self}: window with title '{title}' wasn't found")
+        raise ValueError(f"{self}: window with title '{title}' wasn't found")
 
     def wait_alert_present(self):
         Logger.info(f"{self}: wait alert present")
