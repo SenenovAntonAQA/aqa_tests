@@ -26,5 +26,5 @@ credentials:
 # Настройки браузера
 browser:
   name: "chrome"           # chrome/firefox/edge/safari
-  headless: false         # режим без GUI (для CI)
+  headless: true         # режим без GUI (для CI)
   window_size: "maximized" # или "1920x1080"
