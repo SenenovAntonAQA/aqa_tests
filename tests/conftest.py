@@ -18,10 +18,11 @@ def browser(config):
     options = []
     if headless:
         options.append("--headless=new")
-    if window_size == "maximized":
-        options.append("--start-maximized")
     else:
-        options.append(f"--window-size={window_size}")
+        if window_size == "maximized":
+            options.append("--start-maximized")
+        else:
+            options.append(f"--window-size={window_size}")
 
     driver = BrowserFactory.get_driver(
         driver_name=AvailableDriverName(browser_name),
