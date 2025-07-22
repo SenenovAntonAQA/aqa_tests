@@ -1,0 +1,30 @@
+# Таймауты (в секундах)
+timeouts:
+  default: 10      # стандартное ожидание элементов
+  page_load: 20    # загрузка страницы
+  element_click: 5 # кликабельные элементы
+  polling: 0.5     # интервал проверки (poll_frequency)
+
+# URL
+urls:
+  basic_auth: "http://the-internet.herokuapp.com/basic_auth"
+  alerts: "https://the-internet.herokuapp.com/javascript_alerts"
+  context_menu: "https://the-internet.herokuapp.com/context_menu"
+  horizontal_slider: "https://the-internet.herokuapp.com/horizontal_slider"
+  hovers: "http://the-internet.herokuapp.com/hovers"
+  windows: "https://the-internet.herokuapp.com/windows"
+  frames: "https://demoqa.com/frames"
+  dynamic_content: "https://the-internet.herokuapp.com/dynamic_content"
+  infinity_scroll: "https://the-internet.herokuapp.com/infinite_scroll"
+  upload: "http://the-internet.herokuapp.com/upload"
+
+# Учетные данные (можно вынести в secrets)
+credentials:
+  username: "admin"
+  password: "admin"
+
+# Настройки браузера
+browser:
+  name: "chrome"           # chrome/firefox/edge/safari
+  headless: true         # режим без GUI (для CI)
+  window_size: "maximized" # или "1920x1080"
