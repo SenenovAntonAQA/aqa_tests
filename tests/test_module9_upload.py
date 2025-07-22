@@ -1,7 +1,10 @@
 import sys
-from pathlib import Path
 import pytest
 
+if sys.platform == "linux":
+    pytest.skip("Тесты upload не выполняются на Linux", allow_module_level=True)
+
+from pathlib import Path
 from pages.upload import UploadPage, UploadedPage
 from utils.config_reader import ConfigReader
 from utils.pyautogui_utils import PyAutoGUIUtilities
@@ -21,13 +24,6 @@ def verify_mark(actual_mark):
     )
 
 
-skip_if_linux = pytest.mark.skipif(
-    sys.platform == "linux",
-    reason="Тест не предназначен для Linux"
-)
-
-
-@skip_if_linux
 def test_case_11_upload_image(browser):
     image = "screenshot_test_case_9.png"
     image_path = (Path(__file__).parent / image).resolve()
@@ -56,7 +52,6 @@ def test_case_11_upload_image(browser):
     )
 
 
-@skip_if_linux
 def test_case_12_dialog_window(browser):
     image = "screenshot_test_case_9.png"
     image_path = (Path(__file__).parent / image).resolve()
@@ -79,7 +74,6 @@ def test_case_12_dialog_window(browser):
     )
 
 
-@skip_if_linux
 def test_case_13_drag_n_drop(browser):
     image = "screenshot_test_case_9.png"
     image_path = Path(__file__).parent
